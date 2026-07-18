@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTABUAA LTD — Building Materials, Oyarifa</title>
+<meta name="description" content="FTABUAA LTD supplies premium plumbing materials, hardware, roofing and building supplies across two Oyarifa branches: Kay Bee Junction and Tipa Junction, Accra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#0d233d;
+    --iron-2:#122c4a;
+    --concrete:#aebdcc;
+    --lime:#f5f8fb;
+    --oxide:#1f6fd6;
+    --oxide-dark:#175aad;
+    --steel:#4c6178;
+    --brass:#6fb2e8;
+    --line: rgba(245,248,251,0.14);
+    --line-dark: rgba(13,35,61,0.12);
+    --radius: 2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--lime);
+    color:var(--iron);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', sans-serif;
+    text-transform:uppercase;
+    margin:0;
+    letter-spacing:0.01em;
+  }
+
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--iron);
+    color:var(--lime);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+  }
+  .topbar .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:9px;
+    padding-bottom:9px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .status-dot{
+    display:inline-block;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--oxide);
+    margin-right:7px;
+    position:relative;
+    top:-1px;
+  }
+  .status-dot.open{background:#7fae5b;}
+  .topbar a.call{color:var(--brass); text-decoration:none;}
+  .topbar a.call:hover{text-decoration:underline;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:var(--lime);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 0;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    text-decoration:none;
+    color:var(--iron);
+  }
+  .brand-mark{
+    width:38px;height:38px;
+    background:var(--oxide);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Anton', sans-serif;
+    color:var(--lime);
+    font-size:18px;
+    transform:rotate(-3deg);
+    flex-shrink:0;
+  }
+  .brand-name{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:0.02em;
+  }
+  .brand-name span{color:var(--oxide);}
+  nav.links{display:flex; gap:32px; font-size:14px; font-weight:600;}
+  nav.links a{text-decoration:none; position:relative; padding:4px 0;}
+  nav.links a:after{
+    content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:var(--oxide); transition:width .25s ease;
+  }
+  nav.links a:hover:after{width:100%;}
+  .nav-cta{
+    background:var(--iron); color:var(--lime);
+    padding:11px 20px;
+    text-decoration:none;
+    font-weight:600; font-size:14px;
+    border:1px solid var(--iron);
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover{background:transparent; color:var(--iron);}
+  .burger{display:none;}
+
+  @media (max-width:820px){
+    nav.links{display:none;}
+    .nav-cta{padding:9px 14px; font-size:13px;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--iron);
+    color:var(--lime);
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 0 0;
+  }
+  .hero:before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(245,248,251,0.035) 0 2px, transparent 2px 46px);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:60px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--brass);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow:before{content:""; width:26px; height:1px; background:var(--brass);}
+  .hero h1{
+    font-size:clamp(52px, 8.4vw, 104px);
+    line-height:0.92;
+    font-weight:800;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--oxide);
+    -webkit-text-stroke:0px;
+  }
+  .hero p.lead{
+    font-family:'Work Sans', sans-serif;
+    font-size:18px;
+    line-height:1.6;
+    color:var(--concrete);
+    max-width:480px;
+    margin-top:26px;
+    font-weight:400;
+  }
+  .hero-cta-row{
+    display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 26px;
+    text-decoration:none;
+    font-weight:600; font-size:15px;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--oxide); color:var(--lime);}
+  .btn-primary:hover{background:var(--oxide-dark);}
+  .btn-ghost{border-color:rgba(245,248,251,0.35); color:var(--lime);}
+  .btn-ghost:hover{border-color:var(--lime); background:rgba(245,248,251,0.06);}
+
+  .hero-rating{
+    display:flex; align-items:center; gap:10px;
+    margin-top:40px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--concrete);
+  }
+  .stars{color:var(--brass); letter-spacing:2px; font-size:15px;}
+
+  .plate{
+    background:var(--iron-2);
+    border:1px solid rgba(245,248,251,0.14);
+    padding:26px;
+    position:relative;
+  }
+  .plate:before, .plate:after, .plate .bolt-tl, .plate .bolt-br{
+    content:"";
+    position:absolute;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--concrete);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,0.5);
+  }
+  .plate:before{top:10px; left:10px;}
+  .plate:after{bottom:10px; right:10px;}
+  .bolt-tl{top:10px; right:10px;}
+  .bolt-br{bottom:10px; left:10px;}
+  .plate-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--brass);
+    margin-bottom:16px;
+  }
+  .plate-list{list-style:none; padding:0; margin:0;}
+  .plate-list li{
+    display:flex; justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px dashed rgba(245,248,251,0.14);
+    font-size:14px;
+  }
+  .plate-list li:last-child{border-bottom:none;}
+  .plate-list .qty{font-family:'JetBrains Mono', monospace; color:var(--concrete); font-size:12px;}
+
+  /* ---------- marquee ---------- */
+  .marquee-band{
+    background:var(--oxide);
+    color:var(--lime);
+    overflow:hidden;
+    border-top:1px solid rgba(0,0,0,0.15);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:scroll-left 32s linear infinite;
+    padding:13px 0;
+  }
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .marquee-track span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:0 22px;
+    white-space:nowrap;
+    border-right:1px solid rgba(245,248,251,0.4);
+  }
+
+  /* ---------- section base ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:52px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(34px,4.6vw,52px);
+    font-weight:800;
+    line-height:1;
+  }
+  .section-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--oxide);
+    letter-spacing:0.1em;
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head p{
+    max-width:360px;
+    color:var(--steel);
+    font-size:15px;
+    line-height:1.6;
+    margin:0;
+  }
+
+  /* ---------- about ---------- */
+  .about{background:var(--lime);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .quote-block{
+    border-left:4px solid var(--oxide);
+    padding-left:28px;
+  }
+  .quote-block p{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-size:clamp(24px,3vw,34px);
+    line-height:1.22;
+    font-weight:700;
+    text-transform:none;
+    margin:0 0 20px 0;
+  }
+  .quote-attr{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--steel);
+    letter-spacing:0.06em;
+  }
+  .about-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+  }
+  .stat{
+    background:var(--lime);
+    padding:28px 22px;
+  }
+  .stat .num{
+    font-family:'Anton', sans-serif;
+    font-size:40px;
+    color:var(--oxide);
+    line-height:1;
+  }
+  .stat .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--steel);
+    margin-top:8px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- categories ---------- */
+  .categories{background:var(--iron); color:var(--lime);}
+  .categories .section-head p{color:var(--concrete);}
+  .cat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .cat-card{
+    background:var(--iron-2);
+    border:1px solid rgba(245,248,251,0.12);
+    padding:28px 24px 24px;
+    position:relative;
+    min-height:230px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .cat-card:hover{border-color:var(--oxide); transform:translateY(-4px);}
+  .cat-card .texture{
+    position:absolute; inset:0; opacity:0.5; pointer-events:none;
+  }
+  .tex-corrugated{background-image:repeating-linear-gradient(100deg, rgba(245,248,251,0.05) 0 4px, transparent 4px 14px);}
+  .tex-rebar{background-image:repeating-linear-gradient(45deg, rgba(245,248,251,0.05) 0 3px, transparent 3px 20px);}
+  .tex-dots{background-image:radial-gradient(rgba(245,248,251,0.12) 1px, transparent 1px); background-size:12px 12px;}
+  .tex-grid{background-image:linear-gradient(rgba(245,248,251,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(245,248,251,0.06) 1px, transparent 1px); background-size:16px 16px;}
+  .tex-pipe{background-image:repeating-linear-gradient(0deg, rgba(245,248,251,0.06) 0 3px, transparent 3px 18px);}
+  .tex-brush{background-image:repeating-linear-gradient(170deg, rgba(245,248,251,0.05) 0 2px, transparent 2px 10px);}
+  .cat-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--brass);
+    position:relative;
+    z-index:1;
+  }
+  .cat-card h3{
+    font-size:26px;
+    font-weight:700;
+    margin-top:14px;
+    position:relative;
+    z-index:1;
+  }
+  .cat-card p{
+    font-size:13px;
+    color:var(--concrete);
+    line-height:1.55;
+    margin:10px 0 0 0;
+    position:relative;
+    z-index:1;
+  }
+
+  @media (max-width:900px){
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:600px){
+    .cat-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- why us ---------- */
+  .why{background:var(--lime);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+  }
+  .why-item{
+    background:var(--lime);
+    padding:34px 26px;
+  }
+  .why-item .mark{
+    font-family:'Anton', sans-serif;
+    font-size:15px;
+    color:var(--oxide);
+    margin-bottom:16px;
+    display:block;
+  }
+  .why-item h3{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .why-item p{
+    font-size:13.5px;
+    color:var(--steel);
+    line-height:1.6;
+    margin:0;
+  }
+  @media (max-width:820px){
+    .why-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .why-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- testimonial ---------- */
+  .testimonial{
+    background:var(--oxide);
+    color:var(--lime);
+    padding:90px 0;
+    position:relative;
+  }
+  .testimonial .wrap{max-width:820px; text-align:center;}
+  .testimonial .stars{color:var(--iron); font-size:20px; letter-spacing:4px;}
+  .testimonial p.big{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-size:clamp(26px,4vw,42px);
+    line-height:1.28;
+    font-weight:700;
+    text-transform:none;
+    margin:22px 0 24px;
+  }
+  .testimonial .attr{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    opacity:0.9;
+  }
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--iron); color:var(--lime);}
+  .visit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+  }
+  .locations-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:44px;
+  }
+  .location-card{
+    background:var(--iron-2);
+    border:1px solid rgba(245,248,251,0.14);
+    padding:32px;
+  }
+  .location-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--brass);
+    margin-bottom:10px;
+  }
+  .location-title{
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  @media (max-width:900px){
+    .locations-grid{grid-template-columns:1fr;}
+  }
+  .info-row{
+    display:flex; gap:18px;
+    padding:22px 0;
+    border-bottom:1px solid rgba(245,248,251,0.14);
+  }
+  .info-row:first-child{padding-top:0;}
+  .info-row .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--brass);
+    width:110px;
+    flex-shrink:0;
+    padding-top:3px;
+  }
+  .info-row .v{font-size:16px; line-height:1.5;}
+  .info-row .v a{text-decoration:none; border-bottom:1px solid var(--oxide);}
+  .hours-table{width:100%; border-collapse:collapse; font-size:14px;}
+  .hours-table td{padding:6px 0; border-bottom:1px dashed rgba(245,248,251,0.12);}
+  .hours-table td.d{color:var(--concrete); font-family:'JetBrains Mono', monospace; font-size:12px;}
+  .hours-table td.t{text-align:right;}
+  .hours-table tr.today td{color:var(--brass); font-weight:600;}
+
+  .map-plate{
+    background:var(--iron-2);
+    border:1px solid rgba(245,248,251,0.14);
+    padding:0;
+    overflow:hidden;
+  }
+  .map-frame{width:100%; height:340px; border:0; display:block; filter:grayscale(0.3) contrast(1.05);}
+  .map-caption{
+    padding:18px 22px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--concrete);
+  }
+  .map-caption a{color:var(--oxide); text-decoration:none;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--iron-2);
+    color:var(--concrete);
+    padding:54px 0 26px;
+    border-top:1px solid rgba(245,248,251,0.1);
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(245,248,251,0.1);
+  }
+  .footer-brand .brand-name{color:var(--lime);}
+  .footer-brand p{font-size:14px; line-height:1.6; max-width:280px; margin-top:14px;}
+  footer h4{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--lime);
+    margin-bottom:16px;
+    text-transform:uppercase;
+  }
+  footer ul{list-style:none; padding:0; margin:0;}
+  footer li{margin-bottom:10px; font-size:14px;}
+  footer a{text-decoration:none;}
+  footer a:hover{color:var(--brass);}
+  .footer-bottom{
+    display:flex; justify-content:space-between;
+    padding-top:22px;
+    font-size:12px;
+    font-family:'JetBrains Mono', monospace;
+    flex-wrap:wrap; gap:10px;
+  }
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr; gap:28px;}
+    .about-grid, .visit-grid{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr;}
+  }
+
+  /* sticky mobile call bar */
+  .mobile-call{
+    display:none;
+    position:fixed; bottom:0; left:0; right:0; z-index:60;
+    background:var(--oxide); color:var(--lime);
+    text-align:center;
+    padding:14px;
+    font-weight:700; font-size:15px;
+    text-decoration:none;
+    letter-spacing:0.04em;
+    box-shadow:0 -4px 14px rgba(0,0,0,0.25);
+  }
+  @media (max-width:820px){
+    .mobile-call{display:block;}
+    body{padding-bottom:56px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="status-dot" id="statusDot"></span><span id="statusText">Checking hours…</span></div>
+    <div>Kay Bee Junction &amp; Tipa Junction, Oyarifa · <a class="call" href="tel:+233244291131">024 429 1131</a> / <a class="call" href="tel:+233540875766">054 087 5766</a></div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <div class="brand-mark">F</div>
+      <div class="brand-name">FTABUAA<span>.</span></div>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#materials">Materials</a>
+      <a href="#why">Why Us</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="nav-cta" href="tel:+233244291131">Call to Order</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">OYARIFA, ACCRA — SINCE OPENING, 5.0★ RATED</div>
+      <h1>BUILT ON<br>WHAT&nbsp;<em>HOLDS</em><br>TOGETHER.</h1>
+      <p class="lead">FTABUAA LTD supplies the plumbing materials, hardware and building essentials that get Oyarifa's projects finished right — stocked deep, priced fair, across two branches: Kay Bee Junction and Tipa Junction.</p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="tel:+233244291131">📞 024 429 1131</a>
+        <a class="btn btn-primary" href="tel:+233540875766">📞 054 087 5766</a>
+        <a class="btn btn-ghost" href="#visit">Get Directions</a>
+      </div>
+      <div class="hero-rating">
+        <span class="stars">★★★★★</span> 5.0 rating on Google · Building materials store in Oyarifa
+      </div>
+    </div>
+    <div class="plate">
+      <span class="bolt-tl"></span><span class="bolt-br"></span>
+      <div class="plate-label">TODAY'S STOCK MANIFEST — NO. 001</div>
+      <ul class="plate-list">
+        <li><span>Plumbing fittings &amp; pipes</span><span class="qty">IN STOCK</span></li>
+        <li><span>Roofing sheets</span><span class="qty">IN STOCK</span></li>
+        <li><span>Mirrors, glass &amp; lighting</span><span class="qty">IN STOCK</span></li>
+        <li><span>Doors, windows &amp; locks</span><span class="qty">IN STOCK</span></li>
+        <li><span>Sanitary ware &amp; tanks</span><span class="qty">IN STOCK</span></li>
+        <li><span>Iron rods &amp; mesh</span><span class="qty">IN STOCK</span></li>
+        <li><span>Paints, tools &amp; adhesives</span><span class="qty">IN STOCK</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-band">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>PLUMBING MATERIALS</span><span>HARDWARE</span><span>IRON RODS</span><span>ROOFING SHEETS</span><span>PVC PIPES</span><span>PAINTS</span><span>TOOLS</span><span>TILES</span><span>NAILS &amp; FASTENERS</span><span>MIRRORS</span><span>LIGHTING</span><span>ELECTRICAL FITTINGS</span><span>DOORS &amp; WINDOWS</span><span>GLASS</span><span>SANITARY WARE</span><span>CEILING &amp; POP</span><span>ADHESIVES &amp; SEALANTS</span><span>WATER TANKS</span><span>LOCKS &amp; HINGES</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="quote-block">
+      <p>"One of the leading companies with the aim of providing high quality building materials to our cherished customers — plumbing materials, hardware and more."</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><div class="num">5.0</div><div class="lbl">Google rating</div></div>
+      <div class="stat"><div class="num">12+</div><div class="lbl">Material categories</div></div>
+      <div class="stat"><div class="num">7AM</div><div class="lbl">Opening time</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Trusted Oyarifa locations</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="categories" id="materials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">STOCK CATALOG</span>
+        <h2>What We Supply</h2>
+      </div>
+      <p>From foundation to finishing — everything a house needs is stocked across both branches. Call ahead for bulk quantities or trade pricing.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="texture tex-pipe"></div>
+        <span class="cat-num">01 / PLUMBING</span>
+        <h3>Plumbing Materials</h3>
+        <p>Pipes, fittings, taps, valves and everything for a job that doesn't leak.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-grid"></div>
+        <span class="cat-num">02 / HARDWARE</span>
+        <h3>Hardware</h3>
+        <p>Nails, bolts, hinges, locks and the small parts every build depends on.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-corrugated"></div>
+        <span class="cat-num">03 / ROOFING</span>
+        <h3>Roofing Sheets</h3>
+        <p>Corrugated sheeting and roofing accessories built for the season.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-rebar"></div>
+        <span class="cat-num">04 / STRUCTURE</span>
+        <h3>Iron Rods &amp; Mesh</h3>
+        <p>Reinforcement steel for slabs, columns and everything load-bearing.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-brush"></div>
+        <span class="cat-num">05 / FINISHES</span>
+        <h3>Paints &amp; Tools</h3>
+        <p>Paints, brushes and hand tools to take a project from raw to finished.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-dots"></div>
+        <span class="cat-num">06 / GLAZING</span>
+        <h3>Mirrors &amp; Glass</h3>
+        <p>Wall mirrors, glass panels and cut-to-size glazing for bathrooms and interiors.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-grid"></div>
+        <span class="cat-num">07 / ELECTRICAL</span>
+        <h3>Lighting &amp; Electrical</h3>
+        <p>Light fittings, bulbs, switches, sockets, cables and consumer units.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-corrugated"></div>
+        <span class="cat-num">08 / OPENINGS</span>
+        <h3>Doors &amp; Windows</h3>
+        <p>Doors, window frames, glazing beads and their locks, hinges and handles.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-pipe"></div>
+        <span class="cat-num">09 / WET AREAS</span>
+        <h3>Sanitary Ware</h3>
+        <p>WCs, sinks, showers, taps and fittings for kitchens and bathrooms.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-rebar"></div>
+        <span class="cat-num">10 / STORAGE</span>
+        <h3>Water Tanks</h3>
+        <p>Polytanks and water storage solutions sized for home and site use.</p>
+      </div>
+      <div class="cat-card">
+        <div class="texture tex-brush"></div>
+        <span class="cat-num">11 / FIXING</span>
+        <h3>Adhesives &amp; Sealants</h3>
+        <p>Tile adhesive, silicone sealants, grout and bonding agents for every finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">WHY OYARIFA CHOOSES US</span>
+        <h2>Built On Trust</h2>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="mark">★ 5.0</span>
+        <h3>Rated by the community</h3>
+        <p>A perfect Google rating from customers who came back for their next project.</p>
+      </div>
+      <div class="why-item">
+        <span class="mark">✓</span>
+        <h3>Genuine materials</h3>
+        <p>Quality checked stock across plumbing, hardware and roofing.</p>
+      </div>
+      <div class="why-item">
+        <span class="mark">☎</span>
+        <h3>Order by phone</h3>
+        <p>Call ahead and we'll have your list ready for pickup at either branch.</p>
+      </div>
+      <div class="why-item">
+        <span class="mark">📍</span>
+        <h3>Two locations</h3>
+        <p>Kay Bee Junction and Tipa Junction — both an easy stop on any build day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="testimonial">
+  <div class="wrap">
+    <div class="stars">★★★★★</div>
+    <p class="big">"FTABUAA is one of the leading companies with the aim of providing high quality building materials to our cherished customers."</p>
+  </div>
+</div>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">FIND US</span>
+        <h2>Visit A Branch</h2>
+      </div>
+      <p style="color:var(--concrete);">Two Oyarifa locations, both stocked and ready — call ahead to confirm what you need is at the branch you're headed to.</p>
+    </div>
+    <div class="locations-grid">
+
+      <div class="location-card">
+        <div class="location-tag">BRANCH 01</div>
+        <h3 class="location-title">Kay Bee Junction</h3>
+        <div class="info-row">
+          <div class="k">ADDRESS</div>
+          <div class="v">Kay Bee Junction, Oyarifa, Accra, Ghana</div>
+        </div>
+        <div class="info-row">
+          <div class="k">PHONE</div>
+          <div class="v"><a href="tel:+233244291131">024 429 1131</a> / <a href="tel:+233540875766">054 087 5766</a></div>
+        </div>
+        <div class="info-row">
+          <div class="k">HOURS</div>
+          <div class="v">
+            <table class="hours-table" id="hoursTable">
+              <tr data-day="1"><td class="d">MON</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="2"><td class="d">TUE</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="3"><td class="d">WED</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="4"><td class="d">THU</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="5"><td class="d">FRI</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="6"><td class="d">SAT</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="0"><td class="d">SUN</td><td class="t">Closed</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="hero-cta-row" style="margin-top:24px;">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Kay+Bee+Junction+Oyarifa+Accra" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn btn-ghost" href="tel:+233244291131">Call this branch</a>
+        </div>
+        <div class="map-plate" style="margin-top:26px;">
+          <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Kay%20Bee%20Junction%2C%20Oyarifa%2C%20Accra&z=16&output=embed">
+          </iframe>
+          <div class="map-caption">
+            <span>KAY BEE JUNCTION, OYARIFA</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Kay+Bee+Junction+Oyarifa+Accra" target="_blank" rel="noopener">Directions →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div class="location-tag">BRANCH 02</div>
+        <h3 class="location-title">Tipa Junction</h3>
+        <div class="info-row">
+          <div class="k">ADDRESS</div>
+          <div class="v">Tipa Junction, Oyarifa, Accra, Ghana</div>
+        </div>
+        <div class="info-row">
+          <div class="k">PHONE</div>
+          <div class="v"><a href="tel:+233244291131">024 429 1131</a> / <a href="tel:+233540875766">054 087 5766</a></div>
+        </div>
+        <div class="info-row">
+          <div class="k">HOURS</div>
+          <div class="v">
+            <table class="hours-table" id="hoursTable2">
+              <tr data-day="1"><td class="d">MON</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="2"><td class="d">TUE</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="3"><td class="d">WED</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="4"><td class="d">THU</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="5"><td class="d">FRI</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="6"><td class="d">SAT</td><td class="t">7:00 AM – 6:00 PM</td></tr>
+              <tr data-day="0"><td class="d">SUN</td><td class="t">Closed</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="hero-cta-row" style="margin-top:24px;">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Tipa+Junction+Oyarifa+Accra" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn btn-ghost" href="tel:+233244291131">Call this branch</a>
+        </div>
+        <div class="map-plate" style="margin-top:26px;">
+          <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Tipa%20Junction%2C%20Oyarifa%2C%20Accra&z=16&output=embed">
+          </iframe>
+          <div class="map-caption">
+            <span>TIPA JUNCTION, OYARIFA</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Tipa+Junction+Oyarifa+Accra" target="_blank" rel="noopener">Directions →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">FTABUAA<span style="color:var(--oxide);">.</span></div>
+        <p>Building materials across two Oyarifa branches — Kay Bee Junction and Tipa Junction. Plumbing materials, hardware and everything a build needs, stocked and ready.</p>
+      </div>
+      <div>
+        <h4>Materials</h4>
+        <ul>
+          <li><a href="#materials">Plumbing</a></li>
+          <li><a href="#materials">Hardware</a></li>
+          <li><a href="#materials">Roofing Sheets</a></li>
+          <li><a href="#materials">Mirrors &amp; Glass</a></li>
+          <li><a href="#materials">Lighting &amp; Electrical</a></li>
+          <li><a href="#materials">Doors &amp; Windows</a></li>
+          <li><a href="#materials">Sanitary Ware</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+233244291131">024 429 1131</a></li>
+          <li><a href="tel:+233540875766">054 087 5766</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Kay+Bee+Junction+Oyarifa+Accra" target="_blank" rel="noopener">Kay Bee Junction, Oyarifa</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Tipa+Junction+Oyarifa+Accra" target="_blank" rel="noopener">Tipa Junction, Oyarifa</a></li>
+          <li>Mon–Sat, 7:00 AM – 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> FTABUAA LTD</span>
+      <span>Oyarifa, Greater Accra</span>
+    </div>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+233244291131">📞 024 429 1131 / 054 087 5766</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // duplicate marquee content for seamless loop
+  var track = document.getElementById('marqueeTrack');
+  track.innerHTML += track.innerHTML;
+
+  // open/closed status (Mon-Sat 7:00-18:00, closed Sunday) — Ghana is GMT/UTC
+  function updateStatus(){
+    var now = new Date();
+    var utcDay = now.getUTCDay();
+    var utcHour = now.getUTCHours();
+    var dot = document.getElementById('statusDot');
+    var text = document.getElementById('statusText');
+    var isOpenDay = utcDay >= 1 && utcDay <= 6;
+    var isOpenHour = utcHour >= 7 && utcHour < 18;
+    if(isOpenDay && isOpenHour){
+      dot.classList.add('open');
+      text.textContent = 'Open now · Closes 6:00 PM';
+    } else {
+      dot.classList.remove('open');
+      text.textContent = 'Closed now · Opens 7:00 AM';
+    }
+    var rows = document.querySelectorAll('#hoursTable tr, #hoursTable2 tr');
+    rows.forEach(function(r){
+      r.classList.toggle('today', parseInt(r.getAttribute('data-day')) === utcDay);
+    });
+  }
+  updateStatus();
+</script>
+
+</body>
+</html>
